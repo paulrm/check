@@ -1,5 +1,5 @@
 #!/bin/bash
-#Desc: Verifica que el directorio build exista
+#Desc: Verifica que el directorio /etc exista
 #===============================================================================
 #
 #        AUTHOR:  Paul

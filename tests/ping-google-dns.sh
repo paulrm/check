@@ -1,5 +1,5 @@
 #!/bin/bash
-#Desc: Verifica conectividad directa c/Internet 
+#Desc: Verifica conectividad a DNS de Google en menos de 1 seg
 #===============================================================================
 #
 #        AUTHOR:  Paul
@@ -31,7 +31,7 @@ fi
 
 if [ $DOFlag = "do" ]
 then 
-    ping -c 1 8.8.8.8 > /dev/null 2>&1  
+    ping -c 1 -w 1 8.8.8.8 > /dev/null 2>&1  
      cc=$?
     if [ $cc -eq 0 ]
     then

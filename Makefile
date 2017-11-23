@@ -5,5 +5,7 @@
 clear-check:
 	rm -f ./check.d/*
 
-install-ubuntu:
-	cp ./tests/ping-google-dns.sh ./check.d/
+install-default:
+	cp ./tests/ping-google-dns.sh           ./check.d/
+	cp ./tests/dir-etc.sh                   ./check.d/
+	cp ./tests/paquete-ack-installed.sh     ./check.d/
