@@ -2,7 +2,7 @@
 #Desc: Verifica que el paquete ack este instalado
 #===============================================================================
 #
-# ToDo: Agregar que soporte indistintamente rpm o dpkg
+# :2Do: Agregar que soporte indistintamente rpm o dpkg
 #
 #        AUTHOR:  Paul
 #       COMPANY:  Dissociated Press
