@@ -1,5 +1,5 @@
 #!/bin/bash
-#Desc: Verifica que el directorio /etc exista
+#Desc: la ip bind del postfix debe ser la main ip
 #===============================================================================
 #
 #        AUTHOR:  Paul
@@ -43,6 +43,6 @@ fi
 
 if [ $DOFlag = "show" ]
 then
-    echo "directorio /etc debe existir"
+    echo "la ip bind del postfix debe ser la main ip"
 fi
 
