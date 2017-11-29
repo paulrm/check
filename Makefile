@@ -20,6 +20,7 @@ clear-check:
 	rm -f ./check.d/*
 
 install-default:
+	mkdir -p ./check.d/
 	cp ./tests/ping-google-dns.sh           ./check.d/
 	cp ./tests/dir-etc.sh                   ./check.d/
 	cp ./tests/timezone-arg.sh              ./check.d/
