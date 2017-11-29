@@ -61,7 +61,7 @@ then
     do
         name=$( basename $cmd)
         desc=$( grep '^#Desc:' $cmd | sed 's/#Desc://' )
-        printf "%-30s | %-80s\n" "$name" "$desc"
+        printf "%-30s | %-85s\n" "$name" "$desc"
     done
     exit 1
 fi
@@ -69,14 +69,21 @@ fi
 
 # --exec
 d=$( date )
-echo "Comenzando tests $d"
+ntests=0
+ntestsOk=0
+echo "--> Comenzando tests $d"
 for cmd in ` find ./check.d -type f`
 do
     #echo $cmd
     # sh ~/dev/etc/check.d/01-paquete-ack-installed.sh
     test=$( $cmd -s )
     out=$( $cmd -e )
-    printf "> %-50s %-20s\n" "$test" "$out"
+    printf "> %-60s %-20s\n" "$test" "$out"
+    ntests=$( expr $ntests + 1 )
+    if [ "$out" = "Ok" ]
+    then
+        ntestsOk=$( expr $ntestsOk + 1 )
+    fi
 done
 d=$( date )
-echo "fi de test tests $d / $SECONDS segs"
+echo "--> Fin check tests ($ntestsOk/$ntests) $d / $SECONDS segs"

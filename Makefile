@@ -4,6 +4,8 @@
 #       <tab> command
 
 .DEFAULT_GOAL := help
+.PHONY: list
+
 
 help:
 	@echo "Makefile del check"
@@ -22,3 +24,4 @@ install-default:
 	cp ./tests/dir-etc.sh                   ./check.d/
 	cp ./tests/timezone-arg.sh              ./check.d/
 	cp ./tests/postfix-bind-main-ip.sh      ./check.d/
+	cp ./tests/postfix-relay.sh             ./check.d/
