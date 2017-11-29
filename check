@@ -2,6 +2,8 @@
 #
 #
 
+cd ~/check
+#
 # NOTE: This requires GNU getopt.  On Mac OS X and FreeBSD, you have to install this
 # separately; see below.
 TEMP=`getopt -o ledm: \
