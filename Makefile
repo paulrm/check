@@ -24,5 +24,8 @@ install-default:
 	cp ./tests/ping-google-dns.sh           ./check.d/
 	cp ./tests/dir-etc.sh                   ./check.d/
 	cp ./tests/timezone-arg.sh              ./check.d/
+	cp ./tests/get-aws-r53-zones.sh         ./check.d/
+
+install-invap:
 	cp ./tests/postfix-bind-main-ip.sh      ./check.d/
 	cp ./tests/postfix-relay.sh             ./check.d/
