@@ -66,15 +66,22 @@ fi
 
 
 # --exec
+testExec=0
+testOk=0
 d=$( date )
 echo "Comenzando tests $d"
 for cmd in ` find ./check.d -type f`
 do
     #echo $cmd
     # sh ~/dev/etc/check.d/01-paquete-ack-installed.sh
+    testExec=$( expr $testExec + 1 )
     test=$( $cmd -s )
     out=$( $cmd -e )
+    if [ "$out" == "Ok" ]
+    then
+        testOk=$( expr $testOk + 1 )
+    fi
     printf "> %-50s %-20s\n" "$test" "$out"
 done
 d=$( date )
-echo "fi de test tests $d / $SECONDS segs"
+echo "Fin de tests ->  ok $testOk de $testExec $d / total time $SECONDS segs"
