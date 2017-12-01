@@ -2,6 +2,8 @@
 #
 #
 
+cd ~/check
+#
 # NOTE: This requires GNU getopt.  On Mac OS X and FreeBSD, you have to install this
 # separately; see below.
 TEMP=`getopt -o ledm: \
@@ -59,7 +61,7 @@ then
     do
         name=$( basename $cmd)
         desc=$( grep '^#Desc:' $cmd | sed 's/#Desc://' )
-        printf "%-30s | %-80s\n" "$name" "$desc"
+        printf "%-30s | %-85s\n" "$name" "$desc"
     done
     exit 1
 fi
@@ -69,7 +71,9 @@ fi
 testExec=0
 testOk=0
 d=$( date )
-echo "Comenzando tests $d"
+ntests=0
+ntestsOk=0
+echo "--> Comenzando tests $d"
 for cmd in ` find ./check.d -type f`
 do
     #echo $cmd
@@ -77,11 +81,12 @@ do
     testExec=$( expr $testExec + 1 )
     test=$( $cmd -s )
     out=$( $cmd -e )
-    if [ "$out" == "Ok" ]
+    printf "> %-60s %-20s\n" "$test" "$out"
+    ntests=$( expr $ntests + 1 )
+    if [ "$out" = "Ok" ]
     then
-        testOk=$( expr $testOk + 1 )
+        ntestsOk=$( expr $ntestsOk + 1 )
     fi
-    printf "> %-50s %-20s\n" "$test" "$out"
 done
 d=$( date )
-echo "Fin de tests ->  ok $testOk de $testExec $d / total time $SECONDS segs"
+echo "--> Fin check tests ($ntestsOk/$ntests) $d / $SECONDS segs"
