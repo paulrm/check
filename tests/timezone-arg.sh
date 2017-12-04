@@ -32,7 +32,7 @@ fi
 if [ $DOFlag = "do" ]
 then 
     out=$( date "+%Z" )
-    if [ $out = "-03" -o $out = "ARS" ]
+    if [ "$out" = "-03" -o "$out" = "ARS" -o "$out" = "ART" ]
     then
        echo "Ok"
     else
