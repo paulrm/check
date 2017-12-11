@@ -57,7 +57,7 @@ fi
 
 if [ "$LIST" = "true" ]
 then
-    for cmd in `find ./check.d -type f | sort`
+    for cmd in `find ./check.d -type f -name "*.sh" | sort`
     do
         name=$( basename $cmd)
         desc=$( grep '^#Desc:' $cmd | sed 's/#Desc://' )
@@ -74,7 +74,7 @@ d=$( date )
 ntests=0
 ntestsOk=0
 echo "--> Comenzando tests $d"
-for cmd in ` find ./check.d -type f`
+for cmd in ` find ./check.d -type f -name "*.sh"`
 do
     #echo $cmd
     # sh ~/dev/etc/check.d/01-paquete-ack-installed.sh

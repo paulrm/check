@@ -18,6 +18,7 @@ list:
 
 clean:
 	rm -f ./check.d/*
+	echo "#File to keep the execute" > ./check.d/README.txt
 
 install-default:
 	mkdir -p ./check.d/
