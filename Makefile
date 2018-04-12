@@ -26,7 +26,10 @@ install-default:
 	mkdir -p ./check.d/
 	cp ./tests/dir-etc.sh                   ./check.d/
 	cp ./tests/timezone-arg.sh              ./check.d/
-	cp ./tests/get-aws-r53-zones.sh         ./check.d/
+	#cp ./tests/get-aws-r53-zones.sh         ./check.d/
+
+urano:
+	cp ./tests/connect-to-mariadb.sh        ./check.d/
 
 home:
 	@echo "Making home"
