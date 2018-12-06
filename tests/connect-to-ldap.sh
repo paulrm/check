@@ -1,5 +1,5 @@
 #!/bin/bash
-#Desc: Verifica conectividad con mariadb
+#Desc: Verifica conectividad con ldap
 #===============================================================================
 #
 #        AUTHOR:  Paul
@@ -7,8 +7,6 @@
 #       VERSION:  1.0
 #      REVISION:  ---
 #===============================================================================
-
-
 programname=$0
 
 function usage {
@@ -32,8 +30,14 @@ fi
 if [ $DOFlag = "do" ]
 then 
     #
+
     #
-    l=$( mysql -h 10.100.110.70  -umoodle -pm00dle -e '\h' moodledb | grep 'Synonym for' 2>/dev/null | wc -l )
+    l=$( ldapsearch -h 125.1.40.133 \
+            -l 5 \
+            -D "cn=ldapuser,ou=sistemas,o=invap" \
+            -w "l1d2a3p4" \
+            -b "o=invap"             \
+            -x "(cn=PMessina)" | grep "eMailAddress:" 2>/dev/null | wc -l )
     if [ $l -gt 0 ]
     then
        echo "Ok"
