@@ -32,8 +32,11 @@ urano:
 	cp ./tests/connect-to-mariadb.sh        ./check.d/
 	cp ./tests/connect-to-ldap.sh           ./check.d/
 
-traful:
+traful-install:
 	cp ./tests/connect-to-ldap.sh           ./check.d/
+	cp ./tests/file-permisions*             ./check.d/
+
+traful-check:
 	MYSQL_PWD=t3stl1nk mysql -h 10.100.110.70 -u testlink -e '\h'  testlinkdb | grep "Synonym for"
 
 home:
