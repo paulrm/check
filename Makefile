@@ -43,7 +43,7 @@ home:
 	@echo "Making home"
 	cp ./tests/ping-google-dns.sh           ./check.d/
         
-invap:
+work:
 	@echo "Making invap"
 	cp ./tests/postfix-bind-main-ip.sh      ./check.d/
 	cp ./tests/postfix-relay.sh             ./check.d/
