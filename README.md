@@ -1,6 +1,8 @@
 # check
 Framework de test basado en bash
 
+[![Build Status](https://travis-ci.org/paulrm/check.svg?branch=master)](https://travis-ci.org/paulrm/check)
+
 # Uso
 
 El make copia los arvchivos al directorio ./check segun el target elegido se eligen distintos sets de ejecucion
