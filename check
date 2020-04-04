@@ -2,7 +2,15 @@
 #
 #
 
-cd ~/check
+if [ -d ./check.d ]
+then
+    cd ./check.d
+else
+    if [ -d ~/check.d ]
+    then
+       cd ~/check.d
+    fi
+fi
 #
 # NOTE: This requires GNU getopt.  On Mac OS X and FreeBSD, you have to install this
 # separately; see below.
@@ -57,7 +65,7 @@ fi
 
 if [ "$LIST" = "true" ]
 then
-    for cmd in `find ./check.d -type f -name "*.sh" | sort`
+    for cmd in `find ./ -type f -name "*.sh" | sort`
     do
         name=$( basename $cmd)
         desc=$( grep '^#Desc:' $cmd | sed 's/#Desc://' )
@@ -74,7 +82,7 @@ d=$( date )
 ntests=0
 ntestsOk=0
 echo "--> Comenzando tests $d"
-for cmd in ` find ./check.d -type f -name "*.sh"`
+for cmd in ` find ./ -type f -name "*.sh"`
 do
     #echo $cmd
     # sh ~/dev/etc/check.d/01-paquete-ack-installed.sh
