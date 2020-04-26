@@ -47,3 +47,8 @@ work:
 	@echo "Making work"
 	cp ./tests/postfix-bind-main-ip.sh      ./check.d/
 	cp ./tests/postfix-relay.sh             ./check.d/
+
+
+exec:
+	./check --exec
+
