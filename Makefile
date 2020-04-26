@@ -26,7 +26,10 @@ install-default:
 	mkdir -p ./check.d/
 	cp ./tests/dir-etc.sh                   ./check.d/
 	cp ./tests/timezone-arg.sh              ./check.d/
-	#cp ./tests/get-aws-r53-zones.sh         ./check.d/
+	cp ./tests/package_.sh				./check.d/package_jq.sh 
+	cp ./tests/package_.sh				./check.d/package_docker.sh
+	cp ./tests/package_.sh				./check.d/package_git.sh
+
 
 urano:
 	cp ./tests/connect-to-mariadb.sh        ./check.d/
