@@ -16,3 +16,7 @@ Al ejecutar check con la opcion --exec ejecuta las scripts de prueba que esten e
 - [ ] :2Do: registar un log de actividad 
 - [ ] :2Do: implementar un esqueleto de test
 - [ ] :2Do: clean up de codigo residual en la opciones
+
+
+# Changelog
+- 2020-05-16 Argegado de tests de herramientas para PHP CI http://jenkins-php.org/
