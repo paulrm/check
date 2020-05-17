@@ -1,7 +1,4 @@
 # # comment
-# # (note: the <tab> in the command line is necessary for make to work) 
-# target:  dependency1 dependency2 ...
-#       <tab> command
 
 .DEFAULT_GOAL := help
 .PHONY: list
@@ -18,6 +15,7 @@ list:
 
 build:
 	mkdir -p ./build/
+	shellcheck check 				 > build/shellcheck-check.txt
 	shellcheck check tests/*.sh      > build/shellcheck.txt
 
 clean:

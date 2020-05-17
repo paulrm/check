@@ -1,14 +1,16 @@
+#!/bin/bash
+#
 #Desc: Ejecuta los comandos de check en $HOME/dev/check.d
 #
 #
 
 if [ -d ./check.d ]
 then
-    cd ./check.d
+    cd ./check.d || exit
 else
     if [ -d ~/check.d ]
     then
-       cd ~/check.d
+       cd ~/check.d || exit
     fi
 fi
 #
@@ -26,9 +28,6 @@ eval set -- "$TEMP"
 EMPTY=true
 LIST=false
 DEBUG=false
-MEMORY=
-DEBUGFILE=
-JAVA_MISC_OPT=
 
 ##
 # Loop Opt
@@ -91,7 +90,7 @@ do
     fi
 done
 d=$( date )
-if [ $ntestsOk -ne $ntests ] 
+if [ "$ntestsOk" -ne "$ntests" ] 
 then
     cc=1
 else
@@ -99,3 +98,4 @@ else
 fi
 
 echo "--> Fin check tests ($ntestsOk/$ntests) $d / $SECONDS segs [cc=$cc]"
+exit ${cc}
