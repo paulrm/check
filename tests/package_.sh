@@ -37,7 +37,7 @@ fi
 
 if [ $DOFlag = "do" ]
 then 
-    distro=$(  awk -F= '/^NAME/{print $2}' /etc/os-release | sed 's/ Linux//' )
+    distro=$(  awk -F= '/^NAME/{print $2}' /etc/os-release | sed 's/ Linux//' | sed 's/"//g' )
     if [ ${distro} = "Ubuntu" ]
     then
         ## Comando - Ubuntu
