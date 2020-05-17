@@ -19,4 +19,5 @@ Al ejecutar check con la opcion --exec ejecuta las scripts de prueba que esten e
 
 
 # Changelog
-- 2020-05-16 Argegado de tests de herramientas para PHP CI http://jenkins-php.org/
+- 2020-05-17 Probado existozamente en CentOS y Ubuntu
+- 2020-05-16 Agregado de tests de herramientas para PHP CI http://jenkins-php.org/
