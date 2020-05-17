@@ -22,6 +22,7 @@ Al ejecutar check con la opcion --exec ejecuta las scripts de prueba que esten e
 ## 2020-05-17 
 - Probado existozamente en CentOS y Ubuntu
 - empezando a control calidad (shellcheck)
+- Error de Falso Failure por Java11
   
 ## 2020-05-16 
 - Agregado de tests de herramientas para PHP CI http://jenkins-php.org/

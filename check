@@ -99,4 +99,3 @@ else
 fi
 
 echo "--> Fin check tests ($ntestsOk/$ntests) $d / $SECONDS segs [cc=$cc]"
-echo $cc

@@ -33,6 +33,7 @@ install-default: clean
 	cp ./tests/package_.sh					./check.d/package_docker.sh
 	cp ./tests/package_.sh					./check.d/package_git.sh
 	cp ./tests/package_.sh 					./check.d/package_hashcat.sh
+	hashcat -m 0 -b --force
 
 install-Others:
 	cp ./tests/package_.sh					./check.d/package_jq.sh 
@@ -48,7 +49,7 @@ install-phpDev:
 	cp ./tests/package_.sh 					./check.d/package_phpdox.sh
 
 hashbench:
-	hashcat -m 0 -b
+	hashcat -m 0 -b --force
 
 urano:
 	cp ./tests/connect-to-mariadb.sh        ./check.d/
