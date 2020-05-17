@@ -37,6 +37,12 @@ install-default:
 	cp ./tests/package_.sh 				./check.d/package_phpmd.sh
 	cp ./tests/package_.sh 				./check.d/package_phpcpd.sh
 	cp ./tests/package_.sh 				./check.d/package_phpdox.sh
+	#
+	cp ./tests/package_.sh				./check.d/package_speedtest-cli.sh
+
+
+
+
 urano:
 	cp ./tests/connect-to-mariadb.sh        ./check.d/
 	cp ./tests/connect-to-ldap.sh           ./check.d/
