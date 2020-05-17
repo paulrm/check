@@ -26,22 +26,21 @@ install-default:
 	mkdir -p ./check.d/
 	cp ./tests/dir-etc.sh                   ./check.d/
 	cp ./tests/timezone-arg.sh              ./check.d/
-	cp ./tests/package_.sh				./check.d/package_jq.sh 
-	cp ./tests/package_.sh				./check.d/package_docker.sh
-	cp ./tests/package_.sh				./check.d/package_git.sh
-	# -php CI Framework 
-	cp ./tests/package_.sh				./check.d/package_phpunit.sh
-	cp ./tests/package_.sh 				./check.d/package_php-codesniffer.sh
-	cp ./tests/package_.sh 				./check.d/package_phploc.sh
-	cp ./tests/package_.sh 				./check.d/package_pdepend.sh
-	cp ./tests/package_.sh 				./check.d/package_phpmd.sh
-	cp ./tests/package_.sh 				./check.d/package_phpcpd.sh
-	cp ./tests/package_.sh 				./check.d/package_phpdox.sh
-	#
-	cp ./tests/package_.sh				./check.d/package_speedtest-cli.sh
+	cp ./tests/package_.sh					./check.d/package_docker.sh
+	cp ./tests/package_.sh					./check.d/package_git.sh
 
+install-Others:
+	cp ./tests/package_.sh					./check.d/package_jq.sh 
+	cp ./tests/package_.sh					./check.d/package_speedtest-cli.sh
 
-
+install-phpDev:
+	cp ./tests/package_.sh					./check.d/package_phpunit.sh
+	cp ./tests/package_.sh 					./check.d/package_php-codesniffer.sh
+	cp ./tests/package_.sh 					./check.d/package_phploc.sh
+	cp ./tests/package_.sh 					./check.d/package_pdepend.sh
+	cp ./tests/package_.sh 					./check.d/package_phpmd.sh
+	cp ./tests/package_.sh 					./check.d/package_phpcpd.sh
+	cp ./tests/package_.sh 					./check.d/package_phpdox.sh
 
 urano:
 	cp ./tests/connect-to-mariadb.sh        ./check.d/
