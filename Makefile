@@ -1,7 +1,7 @@
 # # comment
 
 .DEFAULT_GOAL := help
-.PHONY: list
+.PHONY: list help build clean
 
 
 help:
@@ -16,7 +16,8 @@ list:
 build:
 	mkdir -p ./build/
 	shellcheck check 				 > build/shellcheck-check.txt
-	shellcheck check tests/*.sh      > build/shellcheck.txt
+	#shellcheck check tests/*.sh      > build/shellcheck.txt
+	wc -l build/shellcheck.txt build/shellcheck-check.txt
 
 clean:
 	@echo "Making clean"

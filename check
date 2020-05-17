@@ -17,8 +17,12 @@ fi
 # NOTE: This requires GNU getopt.  On Mac OS X and FreeBSD, you have to install this
 # separately; see below.
 TEMP=$( getopt -o ledm: --long list,exec,debug,memory:,debugfile:,minheap:,maxheap: -n 'javawrap' -- "$@" )
-
-if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
+cc=$?
+if [ "$cc" != 0 ] 
+then 
+    echo "Terminating..." >&2 
+    exit 1 
+fi
 
 # Note the quotes around `$TEMP': they are essential!
 eval set -- "$TEMP"
@@ -56,10 +60,10 @@ fi
 
 if [ "$LIST" = "true" ]
 then
-    for cmd in `find ./ -type f -name "*.sh" | sort`
+    for cmd in $( find ./ -type f -name "*.sh" | sort )
     do
-        name=$( basename $cmd)
-        desc=$( grep '^#Desc:' $cmd | sed 's/#Desc://' )
+        name=$( basename "$cmd")
+        desc=$( grep '^#Desc:' "$cmd" | sed 's/#Desc://' )
         printf "%-30s | %-85s\n" "$name" "$desc"
     done
     exit 1
@@ -73,18 +77,18 @@ d=$( date )
 ntests=0
 ntestsOk=0
 echo "--> Comenzando tests $d"
-for cmd in $( find ./ -type f -name "*.sh" )
+for cmd in $( find ./ -type f -name "*.sh" | sort )
 do
     #echo $cmd
     # sh ~/dev/etc/check.d/01-paquete-ack-installed.sh
-    testExec=$( expr $testExec + 1 )
+    testExec=$((  testExec + 1 ))
     test=$( $cmd -s )
     out=$( $cmd -e )
     printf "> %-60s %-20s\n" "$test" "$out"
-    ntests=$( expr $ntests + 1 )
+    ntests=$(( ntests + 1 ))
     if [ "$out" = "Ok" ]
     then
-        ntestsOk=$( expr $ntestsOk + 1 )
+        ntestsOk=$(( ntestsOk + 1 ))
     fi
 done
 d=$( date )
