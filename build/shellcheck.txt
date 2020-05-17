@@ -1,0 +1,239 @@
+
+In check line 1:
+#Desc: Ejecuta los comandos de check en $HOME/dev/check.d
+^-- SC2148: Tips depend on target shell and yours is unknown. Add a shebang.
+
+
+In check line 7:
+    cd ./check.d
+    ^-- SC2164: Use 'cd ... || exit' or 'cd ... || return' in case cd fails.
+
+
+In check line 11:
+       cd ~/check.d
+       ^-- SC2164: Use 'cd ... || exit' or 'cd ... || return' in case cd fails.
+
+
+In check line 17:
+TEMP=`getopt -o ledm: \
+     ^-- SC2006: Use $(..) instead of legacy `..`.
+
+
+In check line 21:
+if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
+     ^-- SC2181: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.
+
+
+In check line 29:
+MEMORY=
+^-- SC2034: MEMORY appears unused. Verify it or export it.
+
+
+In check line 30:
+DEBUGFILE=
+^-- SC2034: DEBUGFILE appears unused. Verify it or export it.
+
+
+In check line 31:
+JAVA_MISC_OPT=
+^-- SC2034: JAVA_MISC_OPT appears unused. Verify it or export it.
+
+
+In check line 40:
+    -d | --debug ) DEBUG=true; shift ;;
+                   ^-- SC2034: DEBUG appears unused. Verify it or export it.
+
+
+In check line 62:
+    for cmd in `find ./ -type f -name "*.sh" | sort`
+               ^-- SC2006: Use $(..) instead of legacy `..`.
+
+
+In check line 64:
+        name=$( basename $cmd)
+                         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In check line 65:
+        desc=$( grep '^#Desc:' $cmd | sed 's/#Desc://' )
+                               ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In check line 74:
+testOk=0
+^-- SC2034: testOk appears unused. Verify it or export it.
+
+
+In check line 79:
+for cmd in ` find ./ -type f -name "*.sh"`
+           ^-- SC2044: For loops over find output are fragile. Use find -exec or a while read loop.
+           ^-- SC2006: Use $(..) instead of legacy `..`.
+
+
+In check line 83:
+    testExec=$( expr $testExec + 1 )
+                ^-- SC2003: expr is antiquated. Consider rewriting this using $((..)), ${} or [[ ]].
+
+
+In check line 87:
+    ntests=$( expr $ntests + 1 )
+              ^-- SC2003: expr is antiquated. Consider rewriting this using $((..)), ${} or [[ ]].
+
+
+In check line 90:
+        ntestsOk=$( expr $ntestsOk + 1 )
+                    ^-- SC2003: expr is antiquated. Consider rewriting this using $((..)), ${} or [[ ]].
+
+
+In check line 94:
+if [ $ntestsOk -ne $ntests ] 
+     ^-- SC2086: Double quote to prevent globbing and word splitting.
+                   ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/connect-to-ldap.sh line 20:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/connect-to-ldap.sh line 40:
+            -x "(cn=PMessina)" | grep "eMailAddress:" 2>/dev/null | wc -l )
+                                 ^-- SC2126: Consider using grep -c instead of grep|wc -l.
+
+
+In tests/connect-to-ldap.sh line 41:
+    if [ $l -gt 0 ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/connect-to-mariadb.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/connect-to-mariadb.sh line 36:
+    l=$( mysql -h 10.100.110.70  -umoodle -pm00dle -e '\h' moodledb | grep 'Synonym for' 2>/dev/null | wc -l )
+                                                                      ^-- SC2126: Consider using grep -c instead of grep|wc -l.
+
+
+In tests/connect-to-mariadb.sh line 37:
+    if [ $l -gt 0 ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/dir-etc.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/dir-etc.sh line 34:
+    l=$( ls /etc 2> /dev/null| wc -l )
+         ^-- SC2012: Use find instead of ls to better handle non-alphanumeric filenames.
+
+
+In tests/dir-etc.sh line 35:
+    if [ $l -gt 0 ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/file-permisions.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/file-permisions.sh line 35:
+    if [ $? -eq 0 ]
+         ^-- SC2181: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.
+
+
+In tests/get-aws-r53-zones.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/package_.sh line 14:
+script=$( basename $programname .sh)
+                   ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/package_.sh line 16:
+package=$( echo  $script | gawk -F _ '{ print $2 }' )
+                 ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/package_.sh line 28:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/package_.sh line 41:
+    if [ ${distro} = "Ubuntu" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/package_.sh line 44:
+        l=$( dpkg -l $package 2> /dev/null| wc -l )
+                     ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/package_.sh line 47:
+        l=$( rpm -qi $package 2> /dev/null| wc -l )
+                     ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/package_.sh line 50:
+    if [ $l -gt 0 ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/paquete-ack-installed.sh line 24:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/paquete-ack-installed.sh line 37:
+    l=$( echo $out | grep ack | wc -l )
+              ^-- SC2086: Double quote to prevent globbing and word splitting.
+                     ^-- SC2126: Consider using grep -c instead of grep|wc -l.
+
+
+In tests/paquete-ack-installed.sh line 38:
+    if [ $l -eq 1 ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/ping-google-dns.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/postfix-bind-main-ip.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/postfix-bind-main-ip.sh line 35:
+    postfix=$( cat /etc/postfix/main.cf | grep -v "^#" | grep "inet_interfaces" | gawk '{ print $3 }' )
+                   ^-- SC2002: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead.
+
+
+In tests/postfix-relay.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/postfix-relay.sh line 34:
+    postfix_relay=$( cat /etc/postfix/main.cf | grep -v "^#" | grep "\[mail-server.invap.com.ar\]" | gawk '{ print $3 }' )
+                         ^-- SC2002: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead.
+
+
+In tests/timezone-arg.sh line 22:
+    if [ $1 = "-s" ]
+         ^-- SC2086: Double quote to prevent globbing and word splitting.
+
+
+In tests/timezone-arg.sh line 35:
+    if [ "$out" = "-03" -o "$out" = "ARS" -o "$out" = "ART" ]
+                        ^-- SC2166: Prefer [ p ] || [ q ] as [ p -o q ] is not well defined.
+                                          ^-- SC2166: Prefer [ p ] || [ q ] as [ p -o q ] is not well defined.
+

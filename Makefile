@@ -16,6 +16,10 @@ list:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | xargs
 
 
+build:
+	mkdir -p ./build/
+	shellcheck check tests/*.sh      > build/shellcheck.txt
+
 clean:
 	@echo "Making clean"
 	rm -f ./check.d/*
@@ -28,6 +32,7 @@ install-default: clean
 	cp ./tests/timezone-arg.sh              ./check.d/
 	cp ./tests/package_.sh					./check.d/package_docker.sh
 	cp ./tests/package_.sh					./check.d/package_git.sh
+	cp ./tests/package_.sh 					./check.d/package_hashcat.sh
 
 install-Others:
 	cp ./tests/package_.sh					./check.d/package_jq.sh 
@@ -41,6 +46,9 @@ install-phpDev:
 	cp ./tests/package_.sh 					./check.d/package_phpmd.sh
 	cp ./tests/package_.sh 					./check.d/package_phpcpd.sh
 	cp ./tests/package_.sh 					./check.d/package_phpdox.sh
+
+hashbench:
+	hashcat -m 0 -b
 
 urano:
 	cp ./tests/connect-to-mariadb.sh        ./check.d/
