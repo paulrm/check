@@ -30,7 +30,6 @@ install-default: clean
 	cp ./tests/timezone-arg.sh              ./check.d/
 	cp ./tests/package_.sh					./check.d/package_docker.sh
 	cp ./tests/package_.sh					./check.d/package_git.sh
-	cp ./tests/package_.sh 					./check.d/package_hashcat.sh
 	cp ./tests/package_.sh					./check.d/package_speedtest-cli.sh
 
 install-Others:

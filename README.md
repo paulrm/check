@@ -1,7 +1,6 @@
 # check
 Framework de test basado en bash
 
-[![Build Status](https://travis-ci.org/paulrm/check.svg?branch=master)](https://travis-ci.org/paulrm/check)
 
 # Uso
 
@@ -11,7 +10,7 @@ Al ejecutar check con la opcion --exec ejecuta las scripts de prueba que esten e
 
 
 # Pendientes
-- [ ] :2Do: agregar un contador de tests-ejecutados/tests-ok
+- [x] ✅ agregar un contador de tests-ejecutados/tests-ok
 - [ ] :2Do: ver como tomar el dir de check.d 
 - [ ] :2Do: registar un log de actividad 
 - [ ] :2Do: implementar un esqueleto de test

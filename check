@@ -16,9 +16,7 @@ fi
 #
 # NOTE: This requires GNU getopt.  On Mac OS X and FreeBSD, you have to install this
 # separately; see below.
-TEMP=`getopt -o ledm: \
-             --long list,exec,debug,memory:,debugfile:,minheap:,maxheap: \
-             -n 'javawrap' -- "$@"`
+TEMP=$( getopt -o ledm: --long list,exec,debug,memory:,debugfile:,minheap:,maxheap: -n 'javawrap' -- "$@" )
 
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 
@@ -48,7 +46,7 @@ then
     echo "Usar: check [--list | --exec]"
     exit 1
 fi
-##
+#######################
 # Verifico condiciones
 ##
 #for a in LIST
@@ -67,15 +65,15 @@ then
     exit 1
 fi
 
-
-# --exec
+#######################
+## --exec
+#######################
 testExec=0
-testOk=0
 d=$( date )
 ntests=0
 ntestsOk=0
 echo "--> Comenzando tests $d"
-for cmd in ` find ./ -type f -name "*.sh"`
+for cmd in $( find ./ -type f -name "*.sh" )
 do
     #echo $cmd
     # sh ~/dev/etc/check.d/01-paquete-ack-installed.sh
@@ -97,5 +95,9 @@ else
     cc=0
 fi
 
-echo "--> Fin check tests ($ntestsOk/$ntests) $d / $SECONDS segs [cc=$cc]"
+echo "--> Fin check tests ($ntestsOk/$ntests) $d / $SECONDS segs"
+if [ $DEBUG = true ]
+then
+    echo "cc=$cc?"
+fi 
 exit ${cc}
