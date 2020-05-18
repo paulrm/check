@@ -34,10 +34,10 @@ then
     #
     l=$( ldapsearch -h 125.1.40.133 \
             -l 5 \
-            -D "cn=ldapuser,ou=sistemas,o=invap" \
-            -w "l1d2a3p4" \
-            -b "o=invap"             \
-            -x "(cn=PMessina)" | grep "eMailAddress:" 2>/dev/null | wc -l )
+            -D "cn=ldapuser,ou=ldapou,o=ldapo" \
+            -w "ldappass" \
+            -b "o=ldapo"             \
+            -x "(cn=UserName)" | grep "eMailAddress:" 2>/dev/null | wc -l )
     if [ $l -gt 0 ]
     then
        echo "Ok"

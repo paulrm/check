@@ -33,7 +33,11 @@ if [ $DOFlag = "do" ]
 then 
     #
     #
-    l=$( mysql -h 10.100.110.70  -umoodle -pm00dle -e '\h' moodledb | grep 'Synonym for' 2>/dev/null | wc -l )
+    ip=127.0.0.1
+    dbuser=dbuser 
+    dbpass=dbpass
+    dbname=dbname
+    l=$( mysql -h $ip  -u$dbuser -p$dbpass -e '\h' $dbname | grep 'Synonym for' 2>/dev/null | wc -l )
     if [ $l -gt 0 ]
     then
        echo "Ok"
