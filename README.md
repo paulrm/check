@@ -21,6 +21,9 @@ Al ejecutar check con la opcion --exec ejecuta las scripts de prueba que esten e
 
 
 # Changelog
+## 2020-05-24
+- Empezando con check rust version
+
 ## 2020-05-17 
 - Probado existozamente en CentOS y Ubuntu
 - empezando a control calidad (shellcheck)
