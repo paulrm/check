@@ -33,6 +33,16 @@ install-default: clean
 	cp ./tests/package_.sh					./check.d/package_git.sh
 	cp ./tests/package_.sh					./check.d/package_speedtest.sh
 
+install-cloud-workstation:
+	cp ./tests/package_.sh				./check.d/package_azure-cli.sh
+	cp ./tests/package_.sh				./check.d/package_terraform.sh
+	cp ./tests/package_.sh				./check.d/package_google-cloud-sdk.sh
+
+install-ubuntu-home: install-default install-cloud-workstation
+	cp ./tests/package_.sh				./check.d/package_smplayer.sh
+	cp ./tests/package_.sh				./check.d/package_deluge.sh
+
+
 install-Others:
 	cp ./tests/package_.sh					./check.d/package_jq.sh 
 	cp ./tests/package_.sh					./check.d/package_speedtest.sh
